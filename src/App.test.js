@@ -31,8 +31,8 @@ test('Login unsuccessful with form submission', async () => {
     const password = result.container.querySelector('#password');
     const formbutton = result.container.querySelector('#register');
 
-    fireEvent.change(email, {target: {value: "sunnyriverjobs@protonmail.com"}});
-    fireEvent.change(password, {target: {value: "yoshimario"}});
+    fireEvent.change(email, {target: {value: "peter@klaven"}});
+    fireEvent.change(password, {target: {value: ""}});
 
     fireEvent.submit(formbutton);
     console.log(await screen.findByText('Login Unsuccessful!'));
