@@ -27,12 +27,15 @@ function App() {
     window.addEventListener("beforeunload", clearStatus());
   }
 
-  // Password length verification
+  // Password length verification (1 char or more)
   function logkey() {
     if(password.length <= 0) {
+      // Displays message about password length requirements
       ReactDOM.render(<div id="password-status-2">Password length must be one character or more</div>, document.getElementById('password-status-1'));
+      // Show password length message
       $("#password-status-2").show()
     } else if (password.length > 0) {
+      // Hide password length message
       $("#password-status-2").hide()
     }
   }
@@ -49,7 +52,9 @@ function App() {
 
     try {
       if (password.length <= 0){
+        // Displaying unsuccessful login for user
         ReactDOM.render(<div id="login-status-2">Login Unsuccessful!</div>, document.getElementById('login-success'));
+        // Alert informing user to enter password with one char or more
         alert("Please enter a password with one or more characters in order to login successfully.");
         return;
       } else {
@@ -95,7 +100,8 @@ function App() {
                             <input type="email" className="form-control" id="email" onChange={(e) => setEmail(`${e.target.value}`)}/>
                             <br/>
                             <label>Password</label>
-                            {/* Password length validation is setup via above */}
+                            {/* Password length validation is setup 
+                            via above in a function */}
                             <input type="password" className="form-control" id="password" onChange={(e) => setPassword(e.target.value)}/>
                         </div>
                     </div>
