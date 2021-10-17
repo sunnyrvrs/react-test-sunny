@@ -4,6 +4,7 @@ import axios from 'axios';
 import ReactDOM, { unmountComponentAtNode } from 'react-dom';
 import $ from 'jquery';
 
+// Main App component
 function App() {
 
   // Setting state for email and password values
