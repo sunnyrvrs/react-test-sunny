@@ -27,6 +27,10 @@ test('Login successful with form submission', async () => {
   fireEvent.change(email, {target: {value: "eve.holt@reqres.in"}});
   fireEvent.change(password, {target: {value: "cityslicka"}});
 
+  // Added code to prevent window.alert error
+  window.alert = jest.fn();
+  window.alert.mockClear();
+
   // Simulates form submission
   fireEvent.submit(formbutton);
 
@@ -50,6 +54,10 @@ test('Login unsuccessful with form submission', async () => {
     // in API notes for unsuccessful POST login at https://reqres.in/api/login
     fireEvent.change(email, {target: {value: "peter@klaven"}});
     fireEvent.change(password, {target: {value: ""}});
+
+    // Added code to prevent window.alert error
+    window.alert = jest.fn();
+    window.alert.mockClear();
 
     // Simulates form submission
     fireEvent.submit(formbutton);
